@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const INITIAL_SPEED: float = 500.0 # starting speed
-var speed: float = 500.0 # ball's speed in which it moves
+const INITIAL_SPEED: float = 420.0 # starting speed
+var speed: float = 420.0 # ball's speed in which it moves
 
 var is_moving: bool = false # this variable is a bool, very simple but handy to use, gets a lot of stuff done
 var velocity_vector: Vector2 = Vector2.ZERO # todo bad redundancy
@@ -13,10 +13,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not is_moving:
-		velocity = Vector2.ZERO # todo so much redundancy to delete/fix later
+		velocity = Vector2.ZERO # so much redundancy to delete/fix later
 		# Press Spacebar (ui_accept), moveUp, or moveDown to launch the ball after reset
 		# ui accept is built into godot, the spacebar
-		if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("moveUp") or Input.is_action_just_pressed("moveDown"):
+		# todo setup controls in godot game engine's gui so the line of code below works (paddle/player)
+		if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("moveLeft") or Input.is_action_just_pressed("moveRight"): 
 			ball_start()
 		return
 		
@@ -34,7 +35,7 @@ func _physics_process(delta: float) -> void:
 			velocity_vector = velocity_vector.bounce(normal) # note: normal. uses that information to bounce the ball away at the correct angle
 
 		# INCREASE SPEED UPON COLLISION
-			speed += 20.0
+			speed += 10.0 # todo play test to tweak this around
 			print("Ball speed increased to: ", speed) # Helpful debug print to see it working
 			
 func ball_start() -> void:

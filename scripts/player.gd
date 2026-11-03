@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends CharacterBody2D # todo transitioning player from characterbody2d to animatablebody2d, change most code in this script
 
 const SPEED: float = 400.0
 var fixed_x: float = 0.0 # Custom variable to remember the paddle's starting X position
