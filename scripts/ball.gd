@@ -4,8 +4,8 @@ const INITIAL_SPEED: float = 420.0 # starting speed
 var speed: float = 420.0 # ball's speed in which it moves
 
 var is_moving: bool = false # this variable is a bool, very simple but handy to use, gets a lot of stuff done
-var velocity_vector: Vector2 = Vector2.ZERO # todo bad redundancy
-var start_position: Vector2 = Vector2.ZERO # todo redundant
+var velocity_vector: Vector2 = Vector2.ZERO # todo remove bad redundancy
+var start_position: Vector2 = Vector2.ZERO # todo remove redundancy
 
 func _ready() -> void:
 	# Automatically saves the exact position the ball was placed in the editor
@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not is_moving:
-		velocity = Vector2.ZERO # so much redundancy to delete/fix later
+		velocity = Vector2.ZERO # todo so much redundancy to delete/fix later
 		# Press Spacebar (ui_accept), moveUp, or moveDown to launch the ball after reset
 		# ui accept is built into godot, the spacebar
 		# todo setup controls in godot game engine's gui so the line of code below works (paddle/player)
@@ -56,7 +56,7 @@ func ball_start() -> void:
 
 func reset() -> void:
 	is_moving = false
-	velocity = Vector2.ZERO # Redundant; ensures the ball stops.
-	velocity_vector = Vector2.ZERO # Redundant; ensures the ball stops.
+	velocity = Vector2.ZERO # todo Redundant; ensures the ball stops.
+	velocity_vector = Vector2.ZERO # todo Redundant; ensures the ball stops.
 	speed = INITIAL_SPEED 
 	global_position = start_position # Snaps the ball back to its original editor position.
