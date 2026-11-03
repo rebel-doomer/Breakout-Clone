@@ -50,6 +50,7 @@ texture = ExtResource("5_lquwl")
 [node name="Scoreboard" type="CanvasLayer" parent="." unique_id=1996603085]
 
 [node name="Label" type="Label" parent="Scoreboard" unique_id=2029362765]
+unique_name_in_owner = true
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Score: "
