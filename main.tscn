@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://b00tp2byhocw1"]
+
+[ext_resource type="Script" uid="uid://cqa5ogjd4obs6" path="res://scripts/main.gd" id="1_1bvp3"]
+[ext_resource type="Script" uid="uid://bttve45l7o86w" path="res://scripts/player.gd" id="3_lquwl"]
+[ext_resource type="Texture2D" uid="uid://cmmdykoguso8m" path="res://assets/breakout_pixel_art/paddle.png" id="4_7mycd"]
+[ext_resource type="Script" uid="uid://cp3j434kbjetd" path="res://scripts/ball.gd" id="4_272bh"]
+[ext_resource type="Texture2D" uid="uid://b5mkd22xer6ly" path="res://assets/Ball.png" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://b6ie807wvkxh7" path="res://scripts/arena.gd" id="6_5vw27"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
+size = Vector2(71, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7mycd"]
+radius = 9.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(13, 699)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(11, 699)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
+size = Vector2(1177, 51)
+
+[node name="Main" type="Node2D" unique_id=72280011]
+script = ExtResource("1_1bvp3")
+
+[node name="Player" type="AnimatableBody2D" parent="." unique_id=2048825170]
+script = ExtResource("3_lquwl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1076305928]
+position = Vector2(558.5, 631)
+shape = SubResource("RectangleShape2D_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=228008801]
+position = Vector2(559, 631)
+texture = ExtResource("4_7mycd")
+
+[node name="Ball" type="CharacterBody2D" parent="." unique_id=17196216]
+script = ExtResource("4_272bh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=763595803]
+position = Vector2(560, 453)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball" unique_id=860780529]
+position = Vector2(560, 453)
+texture = ExtResource("5_lquwl")
+
+[node name="Scoreboard" type="CanvasLayer" parent="." unique_id=1996603085]
+
+[node name="Label" type="Label" parent="Scoreboard" unique_id=2029362765]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Score: "
+
+[node name="Control" type="Control" parent="Scoreboard" unique_id=1688240315]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Arena" type="Area2D" parent="." unique_id=177803193]
+script = ExtResource("6_5vw27")
+
+[node name="LeftWall" type="StaticBody2D" parent="Arena" unique_id=323335889]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/LeftWall" unique_id=1461047971]
+position = Vector2(-6.5, 318.5)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="RightWall" type="StaticBody2D" parent="Arena" unique_id=1118895206]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/RightWall" unique_id=17573574]
+position = Vector2(1158.5, 324.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="FloorCollision" type="CollisionShape2D" parent="Arena" unique_id=1366121539]
+position = Vector2(575.5, 675.5)
+shape = SubResource("RectangleShape2D_7mycd")
