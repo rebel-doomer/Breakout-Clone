@@ -1,7 +1,11 @@
 extends Node2D
-
+"""
+todo
+The Floor is a Penalty (Lose a Life), Not a Score
+todo Clean Up Empty Functions
+"""
 var player_score: int = 0 # todo refactor variable name to match everywhere else
-@onready var score_label: Label = %Label # todo setup % on the label node via godot game engine's gui
+@onready var score_label: Label = $"../Scoreboard/Label"
 
 func _ready() -> void:
 	pass
