@@ -35,9 +35,9 @@ func _physics_process(delta: float) -> void:
 			velocity_vector = velocity_vector.bounce(normal) # note: normal. uses that information to bounce the ball away at the correct angle
 
 		# INCREASE SPEED UPON COLLISION
-			speed += 10.0 # todo play test to tweak this around
+			speed += 1 # todo play test to tweak this around
 			print("Ball speed increased to: ", speed) # Helpful debug print to see it working
-			
+
 func ball_start() -> void:
 	is_moving = true
 	speed = INITIAL_SPEED # Ensure it always starts at the baseline speed
